@@ -3,9 +3,9 @@
 public class Student : Person
 {
     private Guid StudentId { get; }
-    private readonly ExamResult[] _examResult = new ExamResult[3];
     private const int MaxExamResults = 3;
     private int _numExamResults;
+    private readonly ExamResult[] _examResult = new ExamResult[MaxExamResults];
 
     public Student(string name, int age)
     {
@@ -16,7 +16,7 @@ public class Student : Person
 
     public void AddExamResult(ExamResult examResult)
     {
-        if(_numExamResults >= MaxExamResults)
+        if (_numExamResults >= MaxExamResults)
         {
             Console.WriteLine("Exam array is full, throw an error or something");
             return;
