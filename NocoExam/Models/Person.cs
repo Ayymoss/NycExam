@@ -1,6 +1,6 @@
 ﻿namespace NocoExam.Models;
 
-public class PersonModel
+public abstract class Person
 {
     protected string? Name { get; init; }
     protected int Age { get; init; }

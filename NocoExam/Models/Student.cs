@@ -1,21 +1,21 @@
 ﻿namespace NocoExam.Models;
 
-public class StudentModel : PersonModel
+public class Student : Person
 {
     private Guid StudentId { get; }
-    private readonly ExamResultModel[] _examResult = new ExamResultModel[3];
+    private readonly ExamResult[] _examResult = new ExamResult[3];
 
-    public StudentModel(string name, int age)
+    public Student(string name, int age)
     {
         Name = name;
         Age = age;
         StudentId = Guid.NewGuid();
     }
 
-    public void AddExamResult(ExamResultModel examResult)
+    public void AddExamResult(ExamResult examResult)
     {
         // This is trash but I have no idea how to do it better
-        // Using a List<ExamResultModel> would have been a lot nicer - task calls for an Array, however.
+        // Using a List<ExamResult> would have been a lot nicer - task calls for an Array, however.
         for (var i = 0; i < _examResult.Length; i++)
         {
             // Rider seems to think "_examResult[i] is not null" is always true, but it's not...

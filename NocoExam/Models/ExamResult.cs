@@ -1,11 +1,11 @@
 ﻿namespace NocoExam.Models;
 
-public class ExamResultModel
+public class ExamResult
 {
-    public string? ExamName { get; }
+    public string ExamName { get; }
     public Grade Grade { get; }
 
-    public ExamResultModel(string examName, int score)
+    public ExamResult(string examName, int score)
     {
         ExamName = examName;
         Grade = score switch
