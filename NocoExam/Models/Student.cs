@@ -4,6 +4,8 @@ public class Student : Person
 {
     private Guid StudentId { get; }
     private readonly ExamResult[] _examResult = new ExamResult[3];
+    private const int MaxExamResults = 3;
+    private int _numExamResults;
 
     public Student(string name, int age)
     {
@@ -14,17 +16,13 @@ public class Student : Person
 
     public void AddExamResult(ExamResult examResult)
     {
-        // This is trash but I have no idea how to do it better
-        // Using a List<ExamResult> would have been a lot nicer - task calls for an Array, however.
-        for (var i = 0; i < _examResult.Length; i++)
+        if(_numExamResults >= MaxExamResults)
         {
-            // Rider seems to think "_examResult[i] is not null" is always true, but it's not...
-            if (_examResult[i] is not null) continue;
-            _examResult[i] = examResult;
+            Console.WriteLine("Exam array is full, throw an error or something");
             return;
         }
 
-        Console.WriteLine("Exam array is full, throw an error or something");
+        _examResult[_numExamResults++] = examResult;
     }
 
     public void PrintInfo()

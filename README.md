@@ -1,6 +1,5 @@
 # NycExam
 
-
 This is my attempt at the below. I took creative license in the design and doesn't stick to a few of the requested rules. :shrug:
 
 ```
